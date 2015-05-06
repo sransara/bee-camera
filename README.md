@@ -1,5 +1,5 @@
 # Bee Camera
-## As a reference for VC0706 MJPEG video with SD storage
+### As a reference for VC0706 MJPEG video with SD storage
 
 Specifically made for a TM4C129X dev board and TM4C129 product line, but with slight changes to the init methods we can easily set this up for other devices.
 
