@@ -1,0 +1,303 @@
+******************************************************************************
+                  TI ARM Linker PC v5.0.4                      
+******************************************************************************
+>> Linked Tue May 05 19:52:39 2015
+
+OUTPUT FILE NAME:   <bike_hud.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 000034e9
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00100000  00003862  000fc79e  R  X
+  SRAM                  20000000   00040000  00000f1a  0003f0e6  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00003868   00003868    r-x
+  00000000    00000000    00000200   00000200    r-- .intvecs
+  00000200    00000200    0000342e   0000342e    r-x .text
+  00003630    00003630    000001e4   000001e4    r-- .const
+  00003818    00003818    00000050   00000050    r-- .cinit
+20000000    20000000    00000eec   00000000    rw-
+  20000000    20000000    00000800   00000000    rw- .stack
+  20000800    20000800    000006ec   00000000    rw- .bss
+20000eec    20000eec    0000002e   0000002e    rw-
+  20000eec    20000eec    0000002e   0000002e    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    00000200     
+                  00000000    00000200     startup_ccs.obj (.intvecs)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.text      0    00000200    0000342e     
+                  00000200    00001cac     ff.obj (.text)
+                  00001eac    000008f0     diskio.obj (.text)
+                  0000279c    000004b0     Camera_driver.obj (.text)
+                  00002c4c    000001fc     driverlib.lib : sysctl.obj (.text:SysCtlClockFreqSet)
+                  00002e48    000001e8     Camctrl_unit.obj (.text)
+                  00003030    000001a8     Terminal_utils.obj (.text)
+                  000031d8    000000bc     main.obj (.text)
+                  00003294    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
+                  00003330    00000094                                   : auto_init.obj (.text)
+                  000033c4    00000078                                   : memset_t2.obj (.text)
+                  0000343c    0000005e                                   : copy_decompress_rle.obj (.text)
+                  0000349a    00000002     --HOLE-- [fill = 0]
+                  0000349c    0000004c     driverlib.lib : sysctl.obj (.text:_SysCtlFrequencyGet)
+                  000034e8    00000048     rtsv7M4_T_le_v4SPD16_eabi.lib : boot.obj (.text)
+                  00003530    00000044                                   : cpy_tbl.obj (.text)
+                  00003574    00000040                                   : exit.obj (.text)
+                  000035b4    0000001c     driverlib.lib : sysctl.obj (.text:_SysCtlMemTimingGet)
+                  000035d0    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : args_main.obj (.text)
+                  000035e8    00000014                                   : _lock.obj (.text)
+                  000035fc    00000012                                   : copy_zero_init.obj (.text:decompress:ZI)
+                  0000360e    0000000e                                   : copy_decompress_none.obj (.text:decompress:none)
+                  0000361c    0000000c     startup_ccs.obj (.text)
+                  00003628    00000006     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
+
+.const     0    00003630    000001e4     
+                  00003630    00000120     driverlib.lib : sysctl.obj (.const:g_pppui32XTALtoVCO)
+                  00003750    0000006c                   : sysctl.obj (.const:g_pui32Xtals)
+                  000037bc    00000038                   : sysctl.obj (.const:g_sXTALtoMEMTIM)
+                  000037f4    00000017     Camera_driver.obj (.const:.string)
+                  0000380b    00000001     --HOLE-- [fill = 0]
+                  0000380c    00000008     driverlib.lib : sysctl.obj (.const)
+
+.cinit     0    00003818    00000050     
+                  00003818    00000027     (.cinit..data.load) [load image, compression = rle]
+                  0000383f    00000001     --HOLE-- [fill = 0]
+                  00003840    0000000c     (__TI_handler_table)
+                  0000384c    00000004     --HOLE-- [fill = 0]
+                  00003850    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00003858    00000010     (__TI_cinit_table)
+
+.stack     0    20000000    00000800     UNINITIALIZED
+                  20000000    00000800     --HOLE--
+
+.bss       0    20000800    000006ec     UNINITIALIZED
+                  20000800    00000400     Camctrl_unit.obj (.bss:sdc_buffer)
+                  20000c00    00000230     Camctrl_unit.obj (.bss:fs)
+                  20000e30    00000050     Camera_driver.obj (.bss:camera_buffer)
+                  20000e80    00000034     Terminal_utils.obj (.bss:g_TerminalBuffer)
+                  20000eb4    00000024     Camctrl_unit.obj (.bss:fil)
+                  20000ed8    00000006     ff.obj (.bss)
+                  20000ede    00000004     Camera_driver.obj (.bss)
+                  20000ee2    00000001     Camctrl_unit.obj (.bss)
+                  20000ee3    00000001     diskio.obj (.bss)
+                  20000ee4    00000004     Terminal_utils.obj (.bss)
+                  20000ee8    00000004     main.obj (.bss)
+
+.data      0    20000eec    0000002e     
+                  20000eec    00000015     Camctrl_unit.obj (.data)
+                  20000f01    00000003     --HOLE--
+                  20000f04    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.data)
+                  20000f0c    00000008                                   : exit.obj (.data)
+                  20000f14    00000004                                   : stkdepth_vars.obj (.data)
+                  20000f18    00000002     diskio.obj (.data)
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00003858 records: 2, size/record: 8, table size: 16
+	.data: load addr=00003818, load size=00000027 bytes, run addr=20000eec, run size=0000002e bytes, compression=rle
+	.bss: load addr=00003850, load size=00000008 bytes, run addr=20000800, run size=000006ec bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00003840 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_rle24
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+00003575   C$$EXIT
+00002f99   Camctrl_Init
+00002ed7   Camctrl_StartVideo
+00002e49   Camctrl_sdc_flush
+00002e87   Camctrl_store_img
+00002a39   Camera_GetFrameLength
+00002b79   Camera_Init
+00002ae1   Camera_ReadPicture
+00002b6b   Camera_Resume
+00002abd   Camera_TakePicture
+00002a8f   Camera_frame_buff_ctrl
+000029db   Camera_reset
+000029f9   Camera_set_image_size
+000028ad   Camera_verify_response
+0000361d   ResetISR
+UNDEFED    SHT$$INIT_ARRAY$$Base
+UNDEFED    SHT$$INIT_ARRAY$$Limit
+00002c4d   SysCtlClockFreqSet
+00003127   Terminal_Init
+000030e7   Terminal_Recv
+0000318f   Terminal_Test
+00003031   Terminal_Write
+0000308f   Terminal_Writeln
+20000800   __STACK_END
+00000800   __STACK_SIZE
+20000100   __STACK_TOP
+00003858   __TI_CINIT_Base
+00003868   __TI_CINIT_Limit
+00003840   __TI_Handler_Table_Base
+0000384c   __TI_Handler_Table_Limit
+00000001   __TI_args_main
+00003331   __TI_auto_init
+0000360f   __TI_decompress_none
+00003629   __TI_decompress_rle24
+00000000   __TI_static_base__
+000035fd   __TI_zero_init
+000033c5   __aeabi_memclr
+000033c5   __aeabi_memclr4
+000033c5   __aeabi_memclr8
+00003295   __aeabi_memcpy
+00003295   __aeabi_memcpy4
+00003295   __aeabi_memcpy8
+000033c7   __aeabi_memset
+000033c7   __aeabi_memset4
+000033c7   __aeabi_memset8
+ffffffff   __binit__
+ffffffff   __c_args__
+20000000   __stack
+000035d1   _args_main
+000034e9   _c_int00
+20000f0c   _cleanup_ptr
+20000f10   _dtors_ptr
+20000f04   _lock
+000035f7   _nop
+000035ef   _register_lock
+000035e9   _register_unlock
+20000f08   _unlock
+00003579   abort
+ffffffff   binit
+000004c1   clust2sect
+00003531   copy_in
+000022f1   disk_initialize
+00002595   disk_ioctl
+00002423   disk_read
+00002409   disk_status
+000024c1   disk_write
+00003581   exit
+00001e79   f_close
+000016e1   f_mount
+00001765   f_open
+00001981   f_read
+00001da7   f_sync
+00001b4b   f_write
+20000e80   g_TerminalBuffer
+20000ee4   g_TerminalBufferLength
+00000000   g_pfnVectors
+20000ee8   g_ui32SysClock
+000004f1   get_fat
+000031d9   main
+20000f14   main_func_sp
+00003295   memcpy
+000033cd   memset
+0000062d   put_fat
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000000   __TI_static_base__
+00000000   g_pfnVectors
+00000001   __TI_args_main
+000004c1   clust2sect
+000004f1   get_fat
+0000062d   put_fat
+00000800   __STACK_SIZE
+000016e1   f_mount
+00001765   f_open
+00001981   f_read
+00001b4b   f_write
+00001da7   f_sync
+00001e79   f_close
+000022f1   disk_initialize
+00002409   disk_status
+00002423   disk_read
+000024c1   disk_write
+00002595   disk_ioctl
+000028ad   Camera_verify_response
+000029db   Camera_reset
+000029f9   Camera_set_image_size
+00002a39   Camera_GetFrameLength
+00002a8f   Camera_frame_buff_ctrl
+00002abd   Camera_TakePicture
+00002ae1   Camera_ReadPicture
+00002b6b   Camera_Resume
+00002b79   Camera_Init
+00002c4d   SysCtlClockFreqSet
+00002e49   Camctrl_sdc_flush
+00002e87   Camctrl_store_img
+00002ed7   Camctrl_StartVideo
+00002f99   Camctrl_Init
+00003031   Terminal_Write
+0000308f   Terminal_Writeln
+000030e7   Terminal_Recv
+00003127   Terminal_Init
+0000318f   Terminal_Test
+000031d9   main
+00003295   __aeabi_memcpy
+00003295   __aeabi_memcpy4
+00003295   __aeabi_memcpy8
+00003295   memcpy
+00003331   __TI_auto_init
+000033c5   __aeabi_memclr
+000033c5   __aeabi_memclr4
+000033c5   __aeabi_memclr8
+000033c7   __aeabi_memset
+000033c7   __aeabi_memset4
+000033c7   __aeabi_memset8
+000033cd   memset
+000034e9   _c_int00
+00003531   copy_in
+00003575   C$$EXIT
+00003579   abort
+00003581   exit
+000035d1   _args_main
+000035e9   _register_unlock
+000035ef   _register_lock
+000035f7   _nop
+000035fd   __TI_zero_init
+0000360f   __TI_decompress_none
+0000361d   ResetISR
+00003629   __TI_decompress_rle24
+00003840   __TI_Handler_Table_Base
+0000384c   __TI_Handler_Table_Limit
+00003858   __TI_CINIT_Base
+00003868   __TI_CINIT_Limit
+20000000   __stack
+20000100   __STACK_TOP
+20000800   __STACK_END
+20000e80   g_TerminalBuffer
+20000ee4   g_TerminalBufferLength
+20000ee8   g_ui32SysClock
+20000f04   _lock
+20000f08   _unlock
+20000f0c   _cleanup_ptr
+20000f10   _dtors_ptr
+20000f14   main_func_sp
+ffffffff   __binit__
+ffffffff   __c_args__
+ffffffff   binit
+UNDEFED    SHT$$INIT_ARRAY$$Base
+UNDEFED    SHT$$INIT_ARRAY$$Limit
+
+[83 symbols]

@@ -1,0 +1,1 @@
+"./libraries/fatfs/ff.obj" "./libraries/fatfs/diskio.obj" "./startup_ccs.obj" "./main.obj" "./Terminal_utils.obj" "./Camera_driver.obj" "./Camctrl_unit.obj" -l"libc.a" -l"E:/Programs/TI/TivaWareCv2/driverlib/ccs/Debug/driverlib.lib" "../bike_hud.cmd" 
